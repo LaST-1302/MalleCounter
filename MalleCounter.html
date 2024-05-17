@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tage bis nach Malle</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            margin: 0;
+            padding: 0 10px; /* Padding für mobilen Rand */
+            box-sizing: border-box;
+            color: #333; /* Dunklere Schriftfarbe für besseren Kontrast */
+        }
+        #counter {
+            font-size: 2em;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 600px; /* Maximale Breite für große Bildschirme */
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Kleinere Schriftgröße für kleine Bildschirme */
+            }
+            #counter {
+                font-size: 1.5em; /* Kleinere Schriftgröße für kleine Bildschirme */
+                padding: 15px; /* Weniger Padding für kleine Bildschirme */
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.75em; /* Noch kleinere Schriftgröße für sehr kleine Bildschirme */
+            }
+            #counter {
+                font-size: 1.25em; /* Noch kleinere Schriftgröße für sehr kleine Bildschirme */
+                padding: 10px; /* Noch weniger Padding für sehr kleine Bildschirme */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">
+        <h1>Tage bis nach Malle</h1>
+        <p id="message"></p>
+    </div>
+    <script>
+        function calculateDays() {
+            const targetDate = new Date('2024-06-26');
+            const currentDate = new Date();
+            const timeDifference = targetDate - currentDate;
+            const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+            return daysRemaining;
+        }
+
+        function updateMessage() {
+            const daysRemaining = calculateDays();
+            const messageElement = document.getElementById('message');
+            if (daysRemaining > 1) {
+                messageElement.textContent = `Tage bis nach Malle: ${daysRemaining}`;
+            } else if (daysRemaining === 1) {
+                messageElement.textContent = `Morgen gehen wir nach Malleeee`;
+            } else if (daysRemaining === 0) {
+                messageElement.textContent = `Heute gehen wir nach Malleeee`;
+            } else {
+                messageElement.textContent = `Malle ist leider vorbei :(`;
+            }
+        }
+
+        updateMessage();
+        setInterval(updateMessage, 1000 * 60 * 60 * 24); // Update täglich
+    </script>
+</body>
+</html>
