@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tage bis nach Malle</title>
+    <title>Wieviel Tage bis nach Malle?</title>
     <style>
         body {
             display: flex;
@@ -54,7 +54,7 @@
 </head>
 <body>
     <div id="counter">
-        <h1>Tage bis nach Malle</h1>
+        <h1>Wieviel Tage bis nach Malle?</h1>
         <p id="message"></p>
     </div>
     <script>
@@ -70,7 +70,7 @@
             const daysRemaining = calculateDays();
             const messageElement = document.getElementById('message');
             if (daysRemaining > 1) {
-                messageElement.textContent = `Tage bis nach Malle: ${daysRemaining}`;
+                messageElement.textContent = `Noch ${daysRemaining} Tage bis nach Maleeee`;
             } else if (daysRemaining === 1) {
                 messageElement.textContent = `Morgen gehen wir nach Malleeee`;
             } else if (daysRemaining === 0) {
